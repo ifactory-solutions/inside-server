@@ -1,0 +1,77 @@
+{
+    "extends": "airbnb/base",
+    "plugins": [
+        "import",
+    ],
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "jest": true
+    },
+    "globals": {
+        "__DEV__": true
+    },
+    "rules": {
+        "no-console": 0,
+        "global-require": "off",
+        "import/prefer-default-export": "off",
+        "arrow-body-style": ["error", "as-needed"],
+        "arrow-parens": ["error", "as-needed"],
+        "comma-dangle": ["error", "always-multiline"],
+        "indent": ["error", 2],
+        "padding-line-between-statements": [
+            "error",
+            { "blankLine": "always", "prev": "var", "next": "return" }
+        ],
+        "newline-per-chained-call": "off",
+        "no-confusing-arrow": "off",
+        "no-mixed-operators": [
+        "error",
+        {
+            "groups": [
+            [
+                "&",
+                "|",
+                "^",
+                "~",
+                "<<",
+                ">>",
+                ">>>"
+            ],
+            [
+                "==",
+                "!=",
+                "===",
+                "!==",
+                ">",
+                ">=",
+                "<",
+                "<="
+            ],
+            [
+                "&&",
+                "||"
+            ],
+            [
+                "in",
+                "instanceof"
+            ]
+            ],
+            "allowSamePrecedence": true
+        }
+        ],
+        "no-underscore-dangle": "off",
+        "max-len": ["error", 80],
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "space-before-function-paren": ["error", "never"],
+        "wrap-iife": [
+            "error",
+            "inside",
+            {
+                "functionPrototypeMethods": false
+            }
+        ]
+    }
+}
