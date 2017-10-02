@@ -52,6 +52,25 @@
     "prettier": "^1.5.3",
     "rimraf": "^2.6.1"
   },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "./dist"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "moduleNameMapper": {
+      "^mongoose$": "<rootDir>/node_modules/mongoose"
+    },
+    "setupFiles": [
+      "babel-polyfill"
+    ]
+  },
   "lint-staged": {
     "*.js": [
       "prettier --write --single-quote true --trailing-comma all --print-width 120",
