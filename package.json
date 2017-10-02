@@ -12,7 +12,8 @@
     "watch": "nodemon src/index.js --exec babel-node",
     "precommit": "lint-staged",
     "commitmsg": "commitlint -e",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "standard-version"
   },
   "author": "",
   "license": "ISC",
@@ -50,7 +51,8 @@
     "lint-staged": "^4.0.2",
     "nodemon": "^1.12.1",
     "prettier": "^1.5.3",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "standard-version": "^4.2.0"
   },
   "jest": {
     "testEnvironment": "node",
