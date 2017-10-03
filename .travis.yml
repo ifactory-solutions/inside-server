@@ -4,8 +4,14 @@ services:
   - docker
   - docker-compose
 
+env:
+  global:
+    - MONGODB_URL: mongodb://localhost:27017/test
+
 before_install:
-  - docker-compose -f docker-compose.test.yml up
+  - docker-compose -f docker-compose.test.yml up -d mongo 
+
+install: npm i --quiet
 
 language: node_js
 
