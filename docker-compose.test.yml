@@ -11,6 +11,8 @@ services:
             MONGO_URL: mongodb://mongo/test
         volumes:
             - "./src:/app/src"
-        entrypoint: "npm run test:watch"
+        entrypoint: "npm run test"
     mongo:
         image: mongo
+        ports:
+          - "27017:27017"
