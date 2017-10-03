@@ -1,3 +1,12 @@
+sudo: required
+
+services:
+  - docker
+  - docker-compose
+
+before_install:
+  - docker-compose -f docker.compose.test.yml up
+
 language: node_js
 
 cache:
