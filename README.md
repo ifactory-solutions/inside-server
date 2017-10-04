@@ -1,0 +1,2 @@
+# inside-server
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5d3d3292927b4b558d418999b135f5e6)](https://www.codacy.com/app/jourdan.rodrigues/inside-server?utm_source=github.com&utm_medium=referral&utm_content=ifactory-solutions/inside-server&utm_campaign=badger)
