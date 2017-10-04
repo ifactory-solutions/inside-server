@@ -1,12 +1,34 @@
-# Inside
+<h2 align="center">Inside Server</h2>
+
+<p align="center">
+  <a href="https://github.com/ifactory-solutions/inside-server/stargazers">
+    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/ifactory-solutions/inside-server.svg?style=social&label=Star">
+  </a>
+  <a href="https://github.com/ifactory-solutions/inside-server/issues">
+    <img alt="GitHub Issues" src="https://img.shields.io/github/issues/ifactory-solutions/inside-server.svg?style=flat-square">
+  </a>
+  <a href="https://github.comifactory-solutions/inside-server/pulls">
+    <img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr-raw/ifactory-solutions/inside-server.svg?style=flat-square">
+  </a>
+  <a href="https://www.codacy.com/app/jourdan.rodrigues/inside-server?bid=5482373&utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-server&amp;utm_campaign=Badge_Grade">
+    <img alt="Codacy" src="https://api.codacy.com/project/badge/Grade/5d3d3292927b4b558d418999b135f5e6?branch=master">
+  </a>
+  <a href="https://travis-ci.org/ifactory-solutions/inside-server">
+    <img alt="Build Status" src="https://img.shields.io/travis/ifactory-solutions/inside-server.svg?style=flat-square">
+  </a>
+  <a href="http://makeapullrequest.com">
+    <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
+  </a>
+</p>
 
 Inside is an open source platform to deal with all the intern process of a company related to its employees. Our goal is to make easy to keep a track and manage all information related to the people that work **inside** the company.
 
-| Master | Development |
-| :----: | :---------: |
-| [![Master Build Status][travis_badge_master]][travis_link] | [![Development Build Status][travis_badge_development]][travis_link] |
-| [![Master Codecov][codecov_badge_master]][codecov_link] | [![Development Codecov][codecov_badge_development]][codecov_link] |
-| [![Master Codacy][codacy_badge_master]][codacy_link_master] | [![Development Codacy][codacy_badge_development]][codacy_link_development] |
+<p align="center">
+  <a href="" target="_blank">
+    <img alt="Inside Server Logo" width="auto" height="auto" src="img/inside-logo.png">
+  </a>
+</p>
+
 ## Getting Started
 
 To get started you will need to get a copy of the project, insert the following commands (one by one) on your terminal.
@@ -30,7 +52,6 @@ npm start
 ### Prerequisites
 
 You should have at least the LTS node version 6.11. We recommend you to use [nvm](https://github.com/creationix/nvm) it will make easy for you to switch between node/mpm versions.
-
 
 ### Installing
 
@@ -77,14 +98,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) site
 * Coders
 * All our loved users
 
-[codacy_link_development]: https://www.codacy.com/app/jourdan.rodrigues/inside-server?bid=5482371&utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-server&amp;utm_campaign=Badge_Grade
-[codacy_link_master]: https://www.codacy.com/app/jourdan.rodrigues/inside-server?bid=5482373&utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-server&amp;utm_campaign=Badge_Grade
-[codacy_badge_development]: https://api.codacy.com/project/badge/Grade/5d3d3292927b4b558d418999b135f5e6?branch=develop
-[codacy_badge_master]: https://api.codacy.com/project/badge/Grade/5d3d3292927b4b558d418999b135f5e6?branch=master
-[codecov_badge_master]: https://codecov.io/gh/ifactory-solutions/inside_server/branch/master/graph/badge.svg
-[codecov_badge_development]: https://codecov.io/gh/ifactory-solutions/inside_server/branch/development/graph/badge.svg
-[codecov_link]: https://codecov.io/gh/ifactory-solutions/inside_server
-[travis_badge_master]: https://travis-ci.org/ifactory-solutions/inside_server.svg?branch=master
-[travis_badge_development]: https://travis-ci.org/ifactory-solutions/inside_server.svg?branch=development
-[travis_link]: https://travis-ci.org/ifactory-solutions/inside_server
 [contributors_link]: https://github.com/kentcdodds/all-contributors
