@@ -53,13 +53,26 @@ npm start
 
 You should have at least the LTS node version 6.11. We recommend you to use [nvm](https://github.com/creationix/nvm) it will make easy for you to switch between node/mpm versions.
 
-### Installing
+### Running the project
+
+At the end of both following processes, you'll have a working GraphQL server [running on the 5000 port](http://localhost:5000/)
+(though you can change it by [setting the environment](.env.example)). 
+
+#### Manually
 
 Run `npm start` (into the project folder) to run the application over a local server.
 
 ```bash
 cd inside-server
 npm start
+```
+
+#### Docker
+
+Be sure to have installed [Docker][docker_link] and [docker-compose][docker_compose_link].
+
+```bash
+docker-compose up
 ```
 
 ## Built With
@@ -99,3 +112,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) site
 * All our loved users
 
 [contributors_link]: https://github.com/kentcdodds/all-contributors
+[docker_link]: https://www.docker.com/get-docker
+[docker_compose_link]: https://docs.docker.com/compose/install/#install-compose
