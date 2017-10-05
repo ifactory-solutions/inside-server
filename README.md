@@ -24,7 +24,7 @@
 Inside is an open source platform to deal with all the intern process of a company related to its employees. Our goal is to make easy to keep a track and manage all information related to the people that work **inside** the company.
 
 <p align="center">
-  <a href="" target="_blank">
+  <a href="" target="\_blank">
     <img alt="Inside Server Logo" width="auto" height="auto" src="img/inside-logo.png">
   </a>
 </p>
