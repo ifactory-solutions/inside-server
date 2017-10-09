@@ -19,7 +19,8 @@ const schema = `
   }
   # this schema allows the following mutation:
   type Mutation {
-    RegisterEmail (name: String, email: String, password: String): Token
+    RegisterEmail (name: String, email: String, password: String): Token,
+    LoginEmail (email: String, password: String): Token,
   }
 `;
 
