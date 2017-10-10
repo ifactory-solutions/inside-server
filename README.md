@@ -16,6 +16,9 @@
   <a href="https://travis-ci.org/ifactory-solutions/inside-server">
     <img alt="Build Status" src="https://img.shields.io/travis/ifactory-solutions/inside-server.svg?style=flat-square">
   </a>
+  <a href="https://gitter.im/ifactory-open-source/inside-server">
+    <img alt="Gitter" src="https://img.shields.io/gitter/room/nwjs/inside-server.svg?style=flat-square">
+  </a>
   <a href="http://makeapullrequest.com">
     <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
   </a>
@@ -56,7 +59,7 @@ You should have at least the LTS node version 6.11. We recommend you to use [nvm
 ### Running the project
 
 At the end of both following processes, you'll have a working GraphQL server [running on the 5000 port](http://localhost:5000/)
-(though you can change it by [setting the environment](.env.example)). 
+(though you can change it by [setting the environment](.env.example)).
 
 #### Manually
 
