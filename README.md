@@ -1,35 +1,24 @@
 <h2 align="center">Inside Server</h2>
 
+
+<!-- Do not erase the blank line below -->
 <p align="center">
-  <a href="https://github.com/ifactory-solutions/inside-server/stargazers">
-    <img alt="GitHub Stars" src="https://img.shields.io/github/stars/ifactory-solutions/inside-server.svg?style=social&label=Star">
-  </a>
-  <a href="https://github.com/ifactory-solutions/inside-server/issues">
-    <img alt="GitHub Issues" src="https://img.shields.io/github/issues/ifactory-solutions/inside-server.svg?style=flat-square">
-  </a>
-  <a href="https://github.comifactory-solutions/inside-server/pulls">
-    <img alt="GitHub Pull Requests" src="https://img.shields.io/github/issues-pr-raw/ifactory-solutions/inside-server.svg?style=flat-square">
-  </a>
-  <a href="https://www.codacy.com/app/jourdan.rodrigues/inside-server?bid=5482373&utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-server&amp;utm_campaign=Badge_Grade">
-    <img alt="Codacy" src="https://api.codacy.com/project/badge/Grade/5d3d3292927b4b558d418999b135f5e6?branch=master">
-  </a>
-  <a href="https://travis-ci.org/ifactory-solutions/inside-server">
-    <img alt="Build Status" src="https://img.shields.io/travis/ifactory-solutions/inside-server.svg?style=flat-square">
-  </a>
-  <a href="https://gitter.im/ifactory-open-source/inside-server">
-    <img alt="Gitter" src="https://img.shields.io/gitter/room/nwjs/inside-server.svg?style=flat-square">
-  </a>
-  <a href="http://makeapullrequest.com">
-    <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square">
-  </a>
+
+[![GitHub Stars][github_stars_badge]][github_stars_link]
+[![GitHub Issues][github_issues_badge]][github_issues_link]
+[![GitHub Pull Requests][github_pr_badge]][github_pr_link]
+[![Codacy][codacy_badge]][codacy_link]
+[![Build Status][travis_status_badge]][travis_status_link]
+[![Gitter][gitter_badge]][gitter_link]
+[![PRs Welcome][pr_welcome_badge]][pr_welcome_link]
 </p>
 
 Inside is an open source platform to deal with all the intern process of a company related to its employees. Our goal is to make easy to keep a track and manage all information related to the people that work **inside** the company.
 
+<!-- Do not erase the blank line below -->
 <p align="center">
-  <a href="" target="\_blank">
-    <img alt="Inside Server Logo" width="auto" height="auto" src="img/inside-logo.png">
-  </a>
+
+[![Inside Server Logo](img/inside-logo.png)]("")
 </p>
 
 ## Getting Started
@@ -117,3 +106,25 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) site
 [contributors_link]: https://github.com/kentcdodds/all-contributors
 [docker_link]: https://www.docker.com/get-docker
 [docker_compose_link]: https://docs.docker.com/compose/install/#install-compose
+
+<!-- badges sources -->
+[github_stars_badge]: https://img.shields.io/github/stars/ifactory-solutions/inside-server.svg?style=social&label=Star
+[github_stars_link]: https://github.com/ifactory-solutions/inside-server/stargazers
+
+[github_issues_badge]: https://img.shields.io/github/issues/ifactory-solutions/inside-server.svg?style=flat-square
+[github_issues_link]: https://github.com/ifactory-solutions/inside-server/issues
+
+[github_pr_badge]: https://img.shields.io/github/issues-pr-raw/ifactory-solutions/inside-server.svg?style=flat-square
+[github_pr_link]: https://github.comifactory-solutions/inside-server/pulls
+
+[codacy_badge]: https://api.codacy.com/project/badge/Grade/5d3d3292927b4b558d418999b135f5e6?branch=master
+[codacy_link]: https://www.codacy.com/app/jourdan.rodrigues/inside-server?bid=5482373&utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ifactory-solutions/inside-server&amp;utm_campaign=Badge_Grade
+
+[travis_status_badge]: https://img.shields.io/travis/ifactory-solutions/inside-server.svg?style=flat-square
+[travis_status_link]: https://travis-ci.org/ifactory-solutions/inside-server
+
+[gitter_badge]: https://img.shields.io/gitter/room/nwjs/inside-server.svg?style=flat-square
+[gitter_link]: https://gitter.im/ifactory-open-source/inside-server
+
+[pr_welcome_badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[pr_welcome_link]: http://makeapullrequest.com
