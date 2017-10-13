@@ -2,7 +2,6 @@
  
  * [ ] Did you check if your issue has already being reported?
  * [ ] Are you running the latest version?
- * [ ] Did you check the [Official Create React App User Guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)?
  
 ### Expected Behavior
  <!--- If you're describing a bug, tell us what should happen -->
