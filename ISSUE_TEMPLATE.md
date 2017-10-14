@@ -1,3 +1,5 @@
+###to contribute, follow this guide
+
 ### Prerequisites
  
  * [ ] Did you check if your issue has already being reported?
