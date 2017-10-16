@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "8.1.4",
+    "npm": "5.4.1"
+  },
   "scripts": {
     "build": "npm run clear && babel src --ignore *.spec.js --out-dir dist --copy-files",
     "clear": "rimraf ./dist",

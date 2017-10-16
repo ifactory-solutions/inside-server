@@ -9,6 +9,8 @@ env:
     - MONGODB_URL: mongodb://localhost:27017/test
 
 before_install:
+  - nvm install $(jq -r '.engines.node' package.json)
+  - npm i -g npm@$(jq -r '.engines.npm' package.json)
   - docker-compose -f docker-compose.test.yml up -d mongo
 
 install: npm i --quiet
