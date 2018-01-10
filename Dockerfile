@@ -1,4 +1,4 @@
-FROM node:8.0-alpine
+FROM node:9.2-alpine
 
 MAINTAINER Valter Júnior <bloodsportjr@gmail.com>
 

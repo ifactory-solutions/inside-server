@@ -3,3 +3,7 @@ node_modules/
 test/
 *.eslintrc.js
 coverage
+src/config.js
+src/db/*
+**/*.test.js
+src/index.js
