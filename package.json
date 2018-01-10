@@ -1,39 +1,44 @@
 {
-  "name": "test-apollo",
+  "name": "inside-server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Inside server api",
   "main": "index.js",
   "scripts": {
     "build": "npm run clear && babel src --ignore *.spec.js --out-dir dist --copy-files",
     "clear": "rimraf ./dist",
     "start": "node dist/index.js",
+    "debug": "babel-node --inspect src/index.js --presets env,stage-0",
     "test": "jest --coverage --forceExit --runInBand",
     "test:watch": "jest --watch --coverage",
     "watch": "nodemon src/index.js --exec babel-node",
     "precommit": "lint-staged",
     "commitmsg": "commitlint -e",
     "lint": "eslint .",
-    "release": "standard-version"
+    "release": "standard-version",
+    "sequelize": "./node_modules/.bin/sequelize",
+    "migrate": "./node_modules/.bin/sequelize db:migrate",
+    "seed": "./node_modules/.bin/sequelize db:seed:all"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "apollo-server-koa": "^1.1.2",
     "babel-polyfill": "^6.23.0",
     "bcryptjs": "^2.4.3",
+    "boom": "^7.1.1",
     "dotenv-safe": "^4.0.4",
-    "graphql": "^0.11.4",
-    "graphql-tools": "^1.2.3",
     "jsonwebtoken": "^8.0.1",
     "kcors": "^2.2.1",
     "koa": "^2.3.0",
     "koa-bodyparser": "^3.2.0",
     "koa-compose": "^4.0.0",
     "koa-convert": "^1.2.0",
-    "koa-graphql": "^0.6.2",
+    "koa-jwt": "^3.3.0",
     "koa-logger": "^2.0.1",
     "koa-router": "^7.1.1",
-    "mongoose": "^4.10.8"
+    "lodash": "^4.17.4",
+    "mysql2": "^1.5.1",
+    "sequelize": "^4.31.0",
+    "sequelize-cli": "^3.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^3.1.0",
@@ -52,13 +57,15 @@
     "nodemon": "^1.12.1",
     "prettier": "^1.5.3",
     "rimraf": "^2.6.1",
-    "standard-version": "^4.2.0"
+    "standard-version": "^4.2.0",
+    "supertest": "^3.0.0"
   },
   "jest": {
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "./dist"
+      "./dist",
+      "/src2"
     ],
     "coverageReporters": [
       "lcov",
@@ -66,9 +73,6 @@
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
-    "moduleNameMapper": {
-      "^mongoose$": "<rootDir>/node_modules/mongoose"
-    },
     "setupFiles": [
       "babel-polyfill"
     ]
