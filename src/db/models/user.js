@@ -1,38 +1,26 @@
-import _ from 'lodash';
+const _ = require('lodash');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
     {
       name: DataTypes.STRING,
-      cpf: {
-        type: DataTypes.STRING,
-        unique: true,
-      },
-      email: {
-        type: DataTypes.STRING,
-        unique: true,
-        validate: {
-          isEmail: true,
-        },
-      },
+      cpf: { type: DataTypes.STRING, unique: true },
+      email: { type: DataTypes.STRING, unique: true, validate: { isEmail: true } },
       password: DataTypes.STRING,
+      createdAt: { allowNull: false, type: DataTypes.DATE },
+      updatedAt: { allowNull: false, type: DataTypes.DATE },
     },
     {
       tableName: 'Users',
-      classMethods: {
-        associate(models) {
-          // associations can be defined here
-        },
-      },
-      instanceMethods: {
-        toJSON() {
-          const privateAttributes = ['password'];
-
-          return _.omit(this.dataValues, privateAttributes);
-        },
-      },
     },
   );
+
+  // Instance Method
+  User.prototype.toJSON = () => {
+    const privateAttributes = ['password'];
+    return _.omit(this.dataValues, privateAttributes);
+  };
+
   return User;
 };
