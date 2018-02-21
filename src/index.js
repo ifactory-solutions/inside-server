@@ -18,7 +18,7 @@ const app = new koa();
 const router = new koaRouter();
 loadRoutes(router);
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'development_docker') {
   const corsOptions = {
     credentials: true,
     origin: '*',
