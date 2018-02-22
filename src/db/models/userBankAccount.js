@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       numeroContaBancaria: { allowNull: false, type: DataTypes.STRING },
     },
     {
-      tableName: 'UserBankAccount',
+      tableName: 'UserBankAccounts',
     },
   );
 
