@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       officeEmail: { allowNull: true, type: DataTypes.STRING },
     },
     {
-      tableName: 'UserContactInfo',
+      tableName: 'UserContactInfos',
     },
   );
 

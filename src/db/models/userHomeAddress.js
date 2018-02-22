@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       country: { allowNull: false, type: DataTypes.STRING },
     },
     {
-      tableName: 'UserHomeAddress',
+      tableName: 'UserHomeAddresses',
     },
   );
 
