@@ -13,4 +13,6 @@ module.exports = (sequelize, DataTypes) => {
   Email.associate = (models) => {
     Email.belongsTo(models.CompanyUser);
   };
+
+  return Email;
 };

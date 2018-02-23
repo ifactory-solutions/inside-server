@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     'UserHomeAddress',
     {
       line1: { allowNull: false, type: DataTypes.STRING },
-      line2: { allowNull: false, type: DataTypes.NUMBER },
+      line2: { allowNull: false, type: DataTypes.INTEGER },
       line3: { allowNull: true, type: DataTypes.STRING },
       line4: { allowNull: false, type: DataTypes.STRING },
       zipcode: { allowNull: false, type: DataTypes.STRING },

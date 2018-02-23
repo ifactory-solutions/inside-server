@@ -11,9 +11,8 @@ const companyUserRoute = (router) => {
       const { companyId } = ctx.params;
       ctx.body = await listCompanyUser(companyId);
     } catch (error) {
-      const { status, ...body } = handleErrors(error);
-      ctx.status = status;
-      ctx.body = body;
+      ctx.status = 500;
+      ctx.body = error;
     }
   });
 
@@ -44,9 +43,8 @@ const companyUserRoute = (router) => {
       const companyUser = ctx.request.body;
       ctx.body = await createCompanyUser(companyUser);
     } catch (error) {
-      const { status, ...body } = handleErrors(error);
-      ctx.status = status;
-      ctx.body = body;
+      ctx.status = 500;
+      ctx.body = error;
     }
   });
 

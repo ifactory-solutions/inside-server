@@ -2,15 +2,17 @@ module.exports = (sequelize, DataTypes) => {
   const Telephone = sequelize.define(
     'Telephone',
     {
-      telefone: { allowNull: false, type: DataTypes.STRING },
+      telephone: { allowNull: false, type: DataTypes.STRING },
       type: { allowNull: false, type: DataTypes.STRING },
     },
     {
-      tableName: 'Telephones',
+      tableName: 'telephones',
     },
   );
 
-  Telephone.associate = models => {
+  Telephone.associate = (models) => {
     Telephone.belongsTo(models.CompanyUser);
   };
+
+  return Telephone;
 };
