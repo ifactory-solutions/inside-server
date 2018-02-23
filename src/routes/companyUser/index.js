@@ -1,5 +1,4 @@
 import { CompanyUser } from '../../services/companyUser';
-import { handleErrors } from '../../utils/';
 
 const { listCompanyUser, findCompanyUser, updateCompanyUser, createCompanyUser, removeCompanyUser } = CompanyUser;
 
@@ -21,9 +20,8 @@ const companyUserRoute = (router) => {
       const { companyId, userId } = ctx.params;
       ctx.body = await findCompanyUser(companyId, userId);
     } catch (error) {
-      const { status, ...body } = handleErrors(error);
-      ctx.status = status;
-      ctx.body = body;
+      ctx.status = 500;
+      ctx.body = error;
     }
   });
 
@@ -32,9 +30,8 @@ const companyUserRoute = (router) => {
       const { companyId, userId } = ctx.params;
       ctx.body = await removeCompanyUser(companyId, userId);
     } catch (error) {
-      const { status, ...body } = handleErrors(error);
-      ctx.status = status;
-      ctx.body = body;
+      ctx.status = 500;
+      ctx.body = error;
     }
   });
 
@@ -55,9 +52,9 @@ const companyUserRoute = (router) => {
 
       ctx.body = await updateCompanyUser(companyId, userId, companyUser);
     } catch (error) {
-      const { status, ...body } = handleErrors(error);
-      ctx.status = status;
-      ctx.body = body;
+      console.error(error);
+      ctx.status = 500;
+      ctx.body = error;
     }
   });
 };
