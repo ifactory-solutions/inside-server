@@ -1,34 +1,66 @@
-import * as SimpleCrud from '../simpleCrudService';
-import { CompanyUser } from '../../db/models';
+import Sequelize from 'sequelize';
+import { CompanyUser, Telephone, Email } from '../../db/models';
 
-export const createCompanyUser = async user => SimpleCrud.create(CompanyUser, user);
-export const listCompanyUser = async () => async companyId =>
-  CompanyUser.find({
-    where: {
-      companyId,
-    },
+const { Op } = Sequelize;
+
+const associations = [
+  CompanyUser.Company,
+  { model: Telephone, as: 'telephones' },
+  { model: Email, as: 'emails' },
+  { association: CompanyUser.UserPersonalInfo },
+  { association: CompanyUser.UserBankAccount },
+  { association: CompanyUser.UserHomeAddress },
+  { association: CompanyUser.UserDocuments },
+];
+
+export const createCompanyUser = async user =>
+  CompanyUser.create(user, {
+    include: associations,
   });
 
-export const findCompanyUser = async (companyId, userId) =>
+export const listCompanyUser = async companyId =>
+  CompanyUser.findAll({
+    where: {
+      companyId: {
+        [Op.eq]: companyId,
+      },
+    },
+    include: associations,
+  });
+
+export const findCompanyUser = async companyUserId =>
   CompanyUser.findOne({
     where: {
-      companyId,
-      userId,
+      id: {
+        [Op.eq]: companyUserId,
+      },
     },
+
+    include: associations,
   });
 
 export const removeCompanyUser = async (companyId, userId) =>
   CompanyUser.findOne({
     where: {
-      companyId,
-      userId,
+      companyId: {
+        [Op.eq]: companyId,
+      },
+      userId: {
+        [Op.eq]: userId,
+      },
     },
   });
 
 export const updateCompanyUser = async (companyId, userId, companyUser) =>
   CompanyUser.update(companyUser, {
     where: {
-      companyId,
-      userId,
+      companyId: {
+        [Op.eq]: companyId,
+      },
+      userId: {
+        [Op.eq]: userId,
+      },
     },
+
+    include: associations,
   });

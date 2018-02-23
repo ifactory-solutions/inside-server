@@ -2,12 +2,14 @@ module.exports = (sequelize, DataTypes) => {
   const Company = sequelize.define(
     'Company',
     {
-      createdAt: { allowNull: false, type: DataTypes.DATE },
-      updatedAt: { allowNull: false, type: DataTypes.DATE },
+      name: { allowNull: false, type: DataTypes.STRING },
+      createdAt: { allowNull: false, defaultValue: new Date(), type: DataTypes.DATE },
+      updatedAt: { allowNull: false, defaultValue: new Date(), type: DataTypes.DATE },
     },
     {
       tableName: 'Companies',
     },
   );
+
   return Company;
 };

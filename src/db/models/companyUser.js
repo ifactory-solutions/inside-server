@@ -2,8 +2,12 @@ module.exports = (sequelize, DataTypes) => {
   const CompanyUser = sequelize.define(
     'CompanyUser',
     {
-      createdAt: { allowNull: false, type: DataTypes.DATE },
-      updatedAt: { allowNull: false, type: DataTypes.DATE },
+      createdAt: {
+        allowNull: false,
+        defaultValue: new Date(),
+        type: DataTypes.DATE,
+      },
+      updatedAt: { allowNull: true, type: DataTypes.DATE },
     },
     {
       tableName: 'CompanyUsers',
@@ -12,18 +16,16 @@ module.exports = (sequelize, DataTypes) => {
 
   // Class Method
   CompanyUser.associate = (models) => {
-    // Will add userId and companyId to CompanyUser
-    CompanyUser.belongsTo(models.User);
-    CompanyUser.belongsTo(models.Company);
+    CompanyUser.User = CompanyUser.belongsTo(models.User);
+    CompanyUser.Company = CompanyUser.belongsTo(models.Company);
 
-    CompanyUser.hasOne(models.UserPersonalInfo, { foreignKey: 'personalInfoId' });
-    CompanyUser.hasOne(models.UserHomeAddress, { foreignKey: 'homeAddressId' });
-    CompanyUser.hasOne(models.UserContactInfo, { foreignKey: 'contactInfoId' });
-    CompanyUser.hasOne(models.UserDocuments, { foreignKey: 'documentsId' });
-    CompanyUser.hasOne(models.UserBankAccount, { foreignKey: 'bankAccountId' });
+    CompanyUser.UserPersonalInfo = CompanyUser.hasOne(models.UserPersonalInfo, { as: 'personalInfo' });
+    CompanyUser.UserBankAccount = CompanyUser.hasOne(models.UserBankAccount, { as: 'bankAccount' });
+    CompanyUser.UserHomeAddress = CompanyUser.hasOne(models.UserHomeAddress, { as: 'address' });
+    CompanyUser.UserDocuments = CompanyUser.hasOne(models.UserDocuments, { as: 'documentation' });
 
-    CompanyUser.hasMany(models.Telephone);
-    CompanyUser.hasMany(models.Email);
+    CompanyUser.hasMany(models.Telephone, { as: 'telephones' });
+    CompanyUser.hasMany(models.Email, { as: 'emails' });
   };
 
   return CompanyUser;

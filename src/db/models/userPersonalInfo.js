@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       gender: { allowNull: false, type: DataTypes.STRING },
       maritalStatus: { allowNull: true, type: DataTypes.STRING },
       spouseName: { allowNull: true, type: DataTypes.STRING },
-      childAmount: { allowNull: true, defaultValue: 0, type: DataTypes.NUMBER },
+      childAmount: { allowNull: true, defaultValue: 0, type: DataTypes.INTEGER },
       createdAt: { allowNull: false, type: DataTypes.DATE },
       updatedAt: { allowNull: false, type: DataTypes.DATE },
     },
