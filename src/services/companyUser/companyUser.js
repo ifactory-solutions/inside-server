@@ -13,6 +13,10 @@ const associations = [
   { association: CompanyUser.UserDocuments },
 ];
 
+const attrSettings = {
+  exclude: ['UserId', 'CompanyId'],
+};
+
 export const createCompanyUser = async user =>
   CompanyUser.create(user, {
     include: associations,
@@ -26,16 +30,19 @@ export const listCompanyUser = async companyId =>
       },
     },
     include: associations,
+    attributes: attrSettings,
   });
 
-export const findCompanyUser = async companyUserId =>
+export const findCompanyUser = async (companyId, companyUserId) =>
   CompanyUser.findOne({
     where: {
+      CompanyId: {
+        [Op.eq]: companyId,
+      },
       id: {
         [Op.eq]: companyUserId,
       },
     },
-
     include: associations,
   });
 
@@ -61,6 +68,4 @@ export const updateCompanyUser = async (companyId, userId, companyUser) =>
         [Op.eq]: userId,
       },
     },
-
-    include: associations,
   });
