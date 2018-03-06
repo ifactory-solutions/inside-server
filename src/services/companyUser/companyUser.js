@@ -5,6 +5,7 @@ const { Op } = Sequelize;
 
 const associations = [
   CompanyUser.Company,
+  CompanyUser.User,
   { model: Telephone, as: 'telephones' },
   { model: Email, as: 'emails' },
   { association: CompanyUser.UserPersonalInfo },
@@ -45,7 +46,7 @@ export const findCompanyUser = async (companyId, companyUserId) =>
       CompanyId: {
         [Op.eq]: companyId,
       },
-      id: {
+      UserId: {
         [Op.eq]: companyUserId,
       },
     },
@@ -53,12 +54,12 @@ export const findCompanyUser = async (companyId, companyUserId) =>
   });
 
 export const removeCompanyUser = async (companyId, userId) =>
-  CompanyUser.findOne({
+  CompanyUser.destroy({
     where: {
       CompanyId: {
         [Op.eq]: companyId,
       },
-      userId: {
+      UserId: {
         [Op.eq]: userId,
       },
     },
