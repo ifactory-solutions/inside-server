@@ -17,15 +17,21 @@ const attrSettings = {
   exclude: ['UserId', 'CompanyId'],
 };
 
-export const createCompanyUser = async user =>
-  CompanyUser.create(user, {
+export const createCompanyUser = async (companyId, user) => {
+  const companyUser = {
+    CompanyId: companyId,
+    ...user,
+  };
+
+  return CompanyUser.create(companyUser, {
     include: associations,
   });
+};
 
 export const listCompanyUser = async companyId =>
   CompanyUser.findAll({
     where: {
-      companyId: {
+      CompanyId: {
         [Op.eq]: companyId,
       },
     },
@@ -49,7 +55,7 @@ export const findCompanyUser = async (companyId, companyUserId) =>
 export const removeCompanyUser = async (companyId, userId) =>
   CompanyUser.findOne({
     where: {
-      companyId: {
+      CompanyId: {
         [Op.eq]: companyId,
       },
       userId: {

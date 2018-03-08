@@ -37,8 +37,9 @@ const companyUserRoute = (router) => {
 
   router.post(COMPANY_USERS_URL, async (ctx) => {
     try {
+      const { companyId } = ctx.params;
       const companyUser = ctx.request.body;
-      ctx.body = await createCompanyUser(companyUser);
+      ctx.body = await createCompanyUser(companyId, companyUser);
     } catch (error) {
       ctx.status = 500;
       ctx.body = error;
