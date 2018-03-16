@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+{ allowNull: false, type: DataTypes.STRING },module.exports = (sequelize, DataTypes) => {
   const CompanyUser = sequelize.define(
     'CompanyUser',
     {
