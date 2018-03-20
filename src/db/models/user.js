@@ -16,6 +16,16 @@ module.exports = (sequelize, DataTypes) => {
     },
   );
 
+  User.associate = (model) => {
+    User.roles = User.belongsToMany(
+      models.Role,
+      {
+        as: 'roles',
+        through: models.CompanyUser,
+      }
+    );
+  }
+
   // Instance Method
   User.prototype.toJSON = () => {
     const privateAttributes = ['password'];

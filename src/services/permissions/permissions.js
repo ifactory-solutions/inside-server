@@ -1,4 +1,6 @@
 import Sequelize from 'sequelize';
+import _ from 'lodash';
+
 import { Permission } from '../../db/models';
 
 const { Op } = Sequelize;
@@ -25,3 +27,13 @@ export const removePermission = async id => Permission.destroy({
     id: { [Op.eq]: id },
   },
 });
+
+export const getPermissions = async (...permissionIds) => {
+  const promises = _.map(permissionIds, id => Permission.findOne({
+    where: {
+      id: { [Op.eq]: id },
+    },
+  }));
+
+  return Promise.all(promises);
+};
