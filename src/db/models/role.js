@@ -9,11 +9,23 @@ module.exports = (sequelize, DataTypes) => {
         }
     );
 
-    Role.associate((models) => {
-        Role.Permissions = Role.hasMany(models.Permission);
-        Role.Users = Role.belongsToMany(models.Users);
-        Role.Company = Role.belongsTo(models.Company);
-    });
+    Role.associate = (models) => {
+        Role.Permission = Role.belongsToMany(
+            models.Permission,
+            {
+                as: 'permissions',
+                through: models.RolePermission
+            }
+        );
+
+        Role.User = Role.belongsToMany(
+            models.User,
+            {
+                as: 'users',
+                through: models.CompanyUser
+            }
+        );
+    }
 
     return Role;
 }

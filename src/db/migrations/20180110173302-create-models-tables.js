@@ -2,7 +2,7 @@ const models = require('../models');
 
 module.exports = {
   up: (queryInterface) => {
-    queryInterface
+    return queryInterface
       .createTable(models.User.tableName, models.User.attributes)
       .then(() => queryInterface.createTable(models.Company.tableName, models.Company.attributes))
       .then(() => queryInterface.createTable(models.Email.tableName, models.Email.attributes))
@@ -16,10 +16,13 @@ module.exports = {
       .then(() => queryInterface.createTable(models.Technology.tableName, models.Technology.attributes))
       .then(() => queryInterface.createTable(models.City.tableName, models.City.attributes))
       .then(() => queryInterface.createTable(models.State.tableName, models.State.attributes))
-      .then(() => queryInterface.createTable(models.Country.tableName, models.Country.attributes));
+      .then(() => queryInterface.createTable(models.Country.tableName, models.Country.attributes))
+      .then(() => queryInterface.createTable(models.Permission.tableName, models.Permission.attributes))
+      .then(() => queryInterface.createTable(models.Role.tableName, models.Role.attributes))
+      .then(() => queryInterface.createTable(models.RolePermission.tableName, models.RolePermission.attributes));
   },
   down: (queryInterface) => {
-    queryInterface
+    return queryInterface
       .dropTable(models.Email.tableName)
       .then(() => queryInterface.dropTable(models.Telephone.tableName))
       .then(() => queryInterface.dropTable(models.UserBankAccount.tableName))
@@ -31,6 +34,9 @@ module.exports = {
       .then(() => queryInterface.dropTable(models.User.tableName))
       .then(() => queryInterface.dropTable(models.City.tableName))
       .then(() => queryInterface.dropTable(models.Country.tableName))
-      .then(() => queryInterface.dropTable(models.State.tableName));
+      .then(() => queryInterface.dropTable(models.State.tableName))
+      .then(() => queryInterface.dropTable(models.RolePermission.tableName))
+      .then(() => queryInterface.dropTable(models.Role.tableName))
+      .then(() => queryInterface.dropTable(models.Permission.tableName));
   },
 };

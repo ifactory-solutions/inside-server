@@ -13,7 +13,13 @@ module.exports = (sequelize, DataTypes) => {
     );
 
     Permission.associate = (models) => {
-        Permission.Role = Permission.belongsToMany(models.Role);
+        Permission.Role = Permission.belongsToMany(
+            models.Role,
+            {
+                as: 'roles',
+                through: models.RolePermission
+            }
+        );
     }
 
     return Permission;
