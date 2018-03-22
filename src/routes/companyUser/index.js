@@ -50,7 +50,6 @@ const companyUserRoute = (router) => {
     try {
       const { companyId, userId } = ctx.params;
       const companyUser = ctx.request.body;
-
       ctx.body = await updateCompanyUser(companyId, userId, companyUser);
     } catch (error) {
       console.error(error);
