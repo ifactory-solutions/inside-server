@@ -1,29 +1,53 @@
 import { RoleService } from '../../services/role';
 
-export const permissionRouter = (router) => {
+export const roleRouter = (router) => {
   router.post('/roles', async (ctx) => {
-    const role = ctx.body;
-    return RoleService.createRole(role);
+    try {
+      const role = ctx.request.body;
+      ctx.body = await RoleService.createRole(role);
+    } catch (error) {
+      ctx.code = 500;
+      ctx.body = error;
+    }
   });
 
   router.get('/roles', async (ctx) => {
-    return RoleService.listRoles();
+    try {
+      ctx.body = await RoleService.listRoles();
+    } catch (error) {
+      ctx.code = 500;
+      ctx.body = error;
+    }
   });
 
   router.get('/roles/:id', async (ctx) => {
-    const { id } = ctx.params;
-    return RoleService.findRole(id);
+    try {
+      const { id } = ctx.params;
+      ctx.body = await RoleService.findRole(id);
+    } catch (error) {
+      ctx.code = 500;
+      ctx.body = error;
+    }
   });
 
   router.put('/roles/:id', async (ctx) => {
-    const { id } = ctx.params;
-    const role = ctx.body;
-    return RoleService.updateRole(id, role);
+    try {
+      const { id } = ctx.params;
+      const role = ctx.body;
+      ctx.body = await RoleService.updateRole(id, role);
+    } catch (error) {
+      ctx.code = 500;
+      ctx.body = error;
+    }
   });
 
   router.delete('/roles/:id', async (ctx) => {
-    const { id } = ctx.params;
-    return RoleService.deleteRole(id);
+    try {
+      const { id } = ctx.params;
+      ctx.body = await RoleService.deleteRole(id);
+    } catch (error) {
+      ctx.code = 500;
+      ctx.body = error;
+    }
   });
 };
-

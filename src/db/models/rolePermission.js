@@ -1,5 +1,5 @@
 module.exports = (sequelize) => {
-  const RolePermission = sequelize.create(
+  const RolePermission = sequelize.define(
     'RolePermission',
     {},
     {

@@ -1,1 +1,1 @@
- 
+export { roleRouter } from './role';

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   );
 
-  User.associate = (model) => {
+  User.associate = (models) => {
     User.roles = User.belongsToMany(
       models.Role,
       {
