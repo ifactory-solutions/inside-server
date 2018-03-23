@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import { encrypt } from '../../utils';
 import { User } from '../../db/models';
 
-const Op = Sequelize.Op;
+const { Op } = Sequelize;
 
 const getUserByEmailAndPassword = async (email, password) => {
   const hash = encrypt(password);

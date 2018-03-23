@@ -26,7 +26,7 @@ export const updateRole = async (roleId, role) =>
     },
   });
 
-export const listRoles = async userId => Role.findAll({
+export const listRoles = async () => Role.findAll({
   include: [associations[0]],
 });
 

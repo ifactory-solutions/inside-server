@@ -17,14 +17,11 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   User.associate = (models) => {
-    User.roles = User.belongsToMany(
-      models.Role,
-      {
-        as: 'roles',
-        through: models.CompanyUser,
-      }
-    );
-  }
+    User.Role = User.belongsToMany(models.Role, {
+      as: 'roles',
+      through: models.UserRole,
+    });
+  };
 
   // Instance Method
   User.prototype.toJSON = () => {
