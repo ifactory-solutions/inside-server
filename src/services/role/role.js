@@ -1,37 +1,54 @@
 import Sequelize from 'sequelize';
-import { Role, Permission, User, RolePermission, CompanyUser } from '../../db/models';
+import _ from 'lodash';
+
+import { Role, Permission } from '../../db/models';
 
 const { Op } = Sequelize;
 
 const associations = [
-  { model: Permission, as: 'permissions', through: RolePermission },
-  { model: User, as: 'users', through: CompanyUser },
+  {
+    model: Permission,
+    as: 'permissions',
+    through: { attributes: [] },
+  },
 ];
 
-export const createRole = async role => Role.create(role, {
-  include: [{ model: Permission, as: 'permissions' }],
-});
+export const create = async role =>
+  Role.create(role, {
+    include: [{ model: Permission, as: 'permissions' }],
+  });
 
-export const findRole = async roleId => Role.findOne({
-  where: {
-    id: { [Op.eq]: roleId },
-  },
-  include: [associations[0]],
-});
+export const find = async roleId =>
+  Role.findOne({
+    where: {
+      id: { [Op.eq]: roleId },
+    },
+    include: associations,
+  });
 
-export const updateRole = async (roleId, role) =>
-  Role.update(role, {
+export const update = async (roleId, role) => {
+  const roleRecord = await find(roleId);
+  const permissionsPromises = _.map(role.permissions, it =>
+    Permission.find({
+      where: {
+        id: { [Op.eq]: it.id },
+      },
+    }),
+  );
+
+  const permissionsRecords = await Promise.all(permissionsPromises);
+  await roleRecord.setPermissions(permissionsRecords);
+  return roleRecord.updateAttributes(_.omit(role, ['permissions']));
+};
+
+export const list = async () =>
+  Role.findAll({
+    include: associations,
+  });
+
+export const remove = async roleId =>
+  Role.destroy({
     where: {
       id: { [Op.eq]: roleId },
     },
   });
-
-export const listRoles = async () => Role.findAll({
-  include: [associations[0]],
-});
-
-export const deleteRole = async roleId => Role.destroy({
-  where: {
-    id: { [Op.eq]: roleId },
-  },
-});
