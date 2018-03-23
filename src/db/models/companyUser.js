@@ -27,11 +27,23 @@ module.exports = (sequelize, DataTypes) => {
       as: 'bankAccount',
       onDelete: 'CASCADE',
     });
-    CompanyUser.UserHomeAddress = CompanyUser.hasOne(models.UserHomeAddress, { as: 'address', onDelete: 'CASCADE' });
-    CompanyUser.UserDocuments = CompanyUser.hasOne(models.UserDocuments, { as: 'documentation', onDelete: 'CASCADE' });
+    CompanyUser.UserHomeAddress = CompanyUser.hasOne(models.UserHomeAddress, {
+      as: 'address',
+      onDelete: 'CASCADE',
+    });
+    CompanyUser.UserDocuments = CompanyUser.hasOne(models.UserDocuments, {
+      as: 'documentation',
+      onDelete: 'CASCADE',
+    });
 
-    CompanyUser.hasMany(models.Telephone, { as: 'telephones', onDelete: 'CASCADE' });
-    CompanyUser.hasMany(models.Email, { as: 'emails', onDelete: 'CASCADE' });
+    CompanyUser.hasMany(models.Telephone, {
+      as: 'telephones',
+      onDelete: 'CASCADE',
+    });
+    CompanyUser.hasMany(models.Email, {
+      as: 'emails',
+      onDelete: 'CASCADE',
+    });
   };
 
   return CompanyUser;

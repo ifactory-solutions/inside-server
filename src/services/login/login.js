@@ -2,7 +2,7 @@ import Boom from 'boom';
 import { getUserByEmailAndPassword } from '../user';
 import { createJwtToken } from '../auth';
 
-const loginService = async data => {
+const loginService = async (data) => {
   if (!data.email || !data.password) {
     throw Boom.badRequest('Dados Inválidos');
   }

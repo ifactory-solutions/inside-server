@@ -1,6 +1,8 @@
 import { CompanyUser } from '../../services/companyUser';
 
-const { listCompanyUser, findCompanyUser, updateCompanyUser, createCompanyUser, removeCompanyUser } = CompanyUser;
+const {
+  listCompanyUser, findCompanyUser, updateCompanyUser, createCompanyUser, removeCompanyUser,
+} = CompanyUser;
 
 const COMPANY_USERS_URL = '/company/:companyId/users';
 
