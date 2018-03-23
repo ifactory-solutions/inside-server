@@ -3,6 +3,12 @@ module.exports = (sequelize, DataTypes) => {
     'Role',
     {
       name: { allowNull: false, type: DataTypes.STRING },
+      createdAt: {
+        allowNull: false,
+        defaultValue: new Date(),
+        type: DataTypes.DATE,
+      },
+      updatedAt: { allowNull: true, type: DataTypes.DATE },
     },
     {
       tableName: 'Roles',
