@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
-import _ from 'lodash';
 
 import { Role, Permission } from '../../db/models';
+import { PermissionService } from '../permissions';
 
 const { Op } = Sequelize;
 
@@ -13,10 +13,17 @@ const associations = [
   },
 ];
 
-export const create = async role =>
-  Role.create(role, {
-    include: [{ model: Permission, as: 'permissions' }],
-  });
+export const create = async (role) => {
+  const { permissions, ...newRole } = role;
+  const roleCreated = await Role.create(newRole);
+
+  if (permissions.length) {
+    const permissionRecords = await PermissionService.listPermissionsWithList(permissions);
+    await roleCreated.setPermissions(permissionRecords);
+  }
+
+  return roleCreated;
+};
 
 export const find = async roleId =>
   Role.findOne({
@@ -27,18 +34,12 @@ export const find = async roleId =>
   });
 
 export const update = async (roleId, role) => {
+  const { permissions, ...editedRole } = role;
   const roleRecord = await find(roleId);
-  const permissionsPromises = _.map(role.permissions, it =>
-    Permission.find({
-      where: {
-        id: { [Op.eq]: it.id },
-      },
-    }),
-  );
+  const permissionRecords = await PermissionService.listPermissionsWithList(permissions);
 
-  const permissionsRecords = await Promise.all(permissionsPromises);
-  await roleRecord.setPermissions(permissionsRecords);
-  return roleRecord.updateAttributes(_.omit(role, ['permissions']));
+  await roleRecord.setPermissions(permissionRecords);
+  return roleRecord.updateAttributes(editedRole);
 };
 
 export const list = async () =>
