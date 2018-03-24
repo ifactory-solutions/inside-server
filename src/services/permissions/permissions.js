@@ -15,15 +15,15 @@ export const listPermission = async roleId =>
   });
 
 export const listPermissionsWithList = async (ids) => {
-  const promises = _.map(ids, it =>
-    Permission.find({
-      where: {
-        id: { [Op.eq]: it },
-      },
-    }),
-  );
+  const idsMap = _.map(ids, it => ({
+    id: { [Op.eq]: it },
+  }));
 
-  return Promise.all(promises);
+  return Permission.findAll({
+    where: {
+      [Op.or]: idsMap,
+    },
+  });
 };
 
 export const editPermission = async (id, permission) =>
@@ -39,15 +39,3 @@ export const removePermission = async id =>
       id: { [Op.eq]: id },
     },
   });
-
-export const getPermissions = async (...permissionIds) => {
-  const promises = _.map(permissionIds, id =>
-    Permission.findOne({
-      where: {
-        id: { [Op.eq]: id },
-      },
-    }),
-  );
-
-  return Promise.all(promises);
-};
