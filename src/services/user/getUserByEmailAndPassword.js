@@ -1,8 +1,22 @@
 import Sequelize from 'sequelize';
 import { encrypt } from '../../utils';
-import { User } from '../../db/models';
+import { User, Role, Permission } from '../../db/models';
 
 const { Op } = Sequelize;
+const associations = [
+  {
+    model: Role,
+    as: 'roles',
+    include: [
+      {
+        model: Permission,
+        as: 'permissions',
+        through: { attributes: [] },
+      },
+    ],
+    through: { attributes: [] },
+  },
+];
 
 const getUserByEmailAndPassword = async (email, password) => {
   const hash = encrypt(password);
@@ -15,6 +29,7 @@ const getUserByEmailAndPassword = async (email, password) => {
         [Op.eq]: hash,
       },
     },
+    include: associations,
   });
 };
 
