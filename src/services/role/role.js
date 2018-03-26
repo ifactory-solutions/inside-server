@@ -37,10 +37,11 @@ export const create = async (role) => {
   return roleCreated.reload({ include: associations });
 };
 
-export const find = async roleId =>
+export const find = async (roleId, companyId) =>
   Role.findOne({
     where: {
       id: { [Op.eq]: roleId },
+      CompanyId: { [Op.eq]: companyId },
     },
     include: associations,
   });
@@ -64,8 +65,11 @@ export const update = async (roleId, role) => {
   return roleRecord.reload({ include: associations });
 };
 
-export const list = async () =>
+export const list = async companyId =>
   Role.findAll({
+    where: {
+      CompanyId: { [Op.eq]: companyId },
+    },
     include: associations,
   });
 

@@ -40,6 +40,11 @@ app
   )
   .use(logger())
   .use(getCurrentUser)
+  .use(async (ctx, next) => {
+    const extras = ctx.request.headers.extras || '{}';
+    ctx.request.extras = JSON.parse(extras);
+    await next();
+  })
   .use(router.routes())
   .use(
     router.allowedMethods({
