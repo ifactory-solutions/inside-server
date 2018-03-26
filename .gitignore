@@ -5,3 +5,4 @@ dist
 .eslintcache
 coverage
 mysql
+launch.json

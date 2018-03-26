@@ -7,6 +7,7 @@ module.exports = {
           {
             id: 1,
             name: 'Admin Role',
+            CompanyId: 1,
           },
         ],
         {},

@@ -6,7 +6,7 @@ export const roleRouter = (router) => {
       const role = ctx.request.body;
       ctx.body = await RoleService.create(role);
     } catch (error) {
-      ctx.code = 500;
+      ctx.status = 500;
       ctx.body = error;
     }
   });
@@ -15,7 +15,7 @@ export const roleRouter = (router) => {
     try {
       ctx.body = await RoleService.list();
     } catch (error) {
-      ctx.code = 500;
+      ctx.status = 500;
       ctx.body = error;
     }
   });
@@ -25,7 +25,7 @@ export const roleRouter = (router) => {
       const { id } = ctx.params;
       ctx.body = await RoleService.find(id);
     } catch (error) {
-      ctx.code = 500;
+      ctx.status = 500;
       ctx.body = error;
     }
   });
@@ -36,7 +36,7 @@ export const roleRouter = (router) => {
       const role = ctx.request.body;
       ctx.body = await RoleService.update(id, role);
     } catch (error) {
-      ctx.code = 500;
+      ctx.status = 500;
       ctx.body = error;
     }
   });
@@ -46,7 +46,7 @@ export const roleRouter = (router) => {
       const { id } = ctx.params;
       ctx.body = await RoleService.remove(id);
     } catch (error) {
-      ctx.code = 500;
+      ctx.status = 500;
       ctx.body = error;
     }
   });

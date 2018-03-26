@@ -9,6 +9,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'dashboard',
+          CompanyId: 1,
         },
         {
           id: 2,
@@ -16,6 +17,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'roles',
+          CompanyId: 1,
         },
         {
           id: 3,
@@ -23,6 +25,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'user',
+          CompanyId: 1,
         },
         {
           id: 4,
@@ -30,6 +33,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'profile',
+          CompanyId: 1,
         },
         {
           id: 5,
@@ -37,6 +41,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'employees',
+          CompanyId: 1,
         },
         {
           id: 6,
@@ -44,6 +49,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'vacations',
+          CompanyId: 1,
         },
         {
           id: 7,
@@ -51,6 +57,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'medical-certificates',
+          CompanyId: 1,
         },
         {
           id: 8,
@@ -58,6 +65,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'enterviews',
+          CompanyId: 1,
         },
         {
           id: 9,
@@ -65,6 +73,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'projects',
+          CompanyId: 1,
         },
         {
           id: 10,
@@ -72,6 +81,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'levels',
+          CompanyId: 1,
         },
         {
           id: 11,
@@ -79,6 +89,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'requests',
+          CompanyId: 1,
         },
         {
           id: 12,
@@ -86,6 +97,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'carrers',
+          CompanyId: 1,
         },
         {
           id: 13,
@@ -93,6 +105,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'badges',
+          CompanyId: 1,
         },
         {
           id: 14,
@@ -100,6 +113,7 @@ module.exports = {
           context: 'menu',
           action: 'view',
           resource: 'time',
+          CompanyId: 1,
         },
       ],
       {},

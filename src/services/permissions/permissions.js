@@ -7,12 +7,7 @@ const { Op } = Sequelize;
 
 export const createPermission = async permission => Permission.create(permission);
 
-export const listPermission = async roleId =>
-  Permission.findAll({
-    where: {
-      roleId: { [Op.eq]: roleId },
-    },
-  });
+export const listPermissions = async () => Permission.findAll();
 
 export const listPermissionsWithList = async (ids) => {
   const idsMap = _.map(ids, it => ({

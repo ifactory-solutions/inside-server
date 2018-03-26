@@ -10,10 +10,11 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'Companies',
     },
   );
-
   Company.associate = (models) => {
-    Company.Client = Company.hasMany(models.Client);
+    Company.User = Company.belongsToMany(models.User, {
+      as: 'users',
+      through: models.CompanyUser,
+    });
   };
-
   return Company;
 };
