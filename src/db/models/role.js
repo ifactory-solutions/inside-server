@@ -25,6 +25,8 @@ module.exports = (sequelize, DataTypes) => {
       as: 'users',
       through: models.UserRole,
     });
+
+    Role.Company = Role.belongsTo(models.Company);
   };
 
   return Role;

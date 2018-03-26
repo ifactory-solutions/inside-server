@@ -1,17 +1,23 @@
 module.exports = {
-  up: (queryInterface, Sequelize) =>
+  up: queryInterface =>
     queryInterface.bulkInsert(
       'Companies',
       [
         {
+          id: 1,
+          name: 'Inside',
+        },
+        {
+          id: 2,
           name: 'iFactory Solutions',
         },
         {
+          id: 3,
           name: 'ExceedLabs',
         },
       ],
       {},
     ),
 
-  down: (queryInterface, Sequelize) => queryInterface.bulkDelete('Companies', null, {}),
+  down: queryInterface => queryInterface.bulkDelete('Companies', null, {}),
 };

@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
@@ -21,13 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       as: 'roles',
       through: models.UserRole,
     });
-    User.CompanyUser = User.hasMany(models.CompanyUser);
-  };
 
-  // Instance Method
-  User.prototype.toJSON = function toJSON() {
-    const privateAttributes = ['password'];
-    return _.omit(this.dataValues, privateAttributes);
+    User.Company = User.belongsToMany(models.Company, {
+      as: 'companies',
+      through: models.CompanyUser,
+    });
   };
 
   return User;

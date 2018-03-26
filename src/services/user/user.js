@@ -2,7 +2,7 @@ import Sequelize from 'sequelize';
 import _ from 'lodash';
 
 import { decryptData, encryptData } from '../../utils/token';
-import { User, Role, Permission } from '../../db/models';
+import { User, Role, Permission, Company } from '../../db/models';
 
 const { Op } = Sequelize;
 const associations = [
@@ -18,6 +18,11 @@ const associations = [
     ],
     through: { attributes: [] },
   },
+  {
+    model: Company,
+    as: 'companies',
+    through: { attributes: [] },
+  },
 ];
 
 export const listUsersWithList = (users) => {
@@ -30,22 +35,24 @@ export const listUsersWithList = (users) => {
   });
 };
 
-export const findFromToken = async (token) => {
-  const { id: userId, username } = decryptData(token);
-  const user = await User.find({
+export const find = async (userId, email) =>
+  User.find({
     where: {
       id: { [Op.eq]: userId },
-      email: { [Op.eq]: username },
+      email: { [Op.eq]: email },
     },
     attributes: ['id', 'name', 'email'],
     include: associations,
   });
 
+export const findFromToken = async (token) => {
+  const { id: userId, username } = decryptData(token);
+  const user = await find(userId, username);
+
   const tokenUser = {
     id: user.id,
     name: user.name,
-    email: user.email,
-    roles: user.roles,
+    username: user.email,
   };
 
   return encryptData(tokenUser);

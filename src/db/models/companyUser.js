@@ -16,9 +16,6 @@ module.exports = (sequelize, DataTypes) => {
 
   // Class Method
   CompanyUser.associate = (models) => {
-    CompanyUser.User = CompanyUser.belongsTo(models.User);
-    CompanyUser.Company = CompanyUser.belongsTo(models.Company);
-
     CompanyUser.UserPersonalInfo = CompanyUser.hasOne(models.UserPersonalInfo, {
       as: 'personalInfo',
       onDelete: 'CASCADE',

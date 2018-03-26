@@ -1,11 +1,13 @@
 import { UserService } from '../../services/user';
+import { decryptData } from '../../utils/token';
 
 export const userRouter = (router) => {
   router.get('/users/me', async (ctx) => {
     try {
       const token = ctx.headers.authorization;
-      const user = await UserService.findFromToken(token);
-      ctx.body = user;
+      const { id, username } = decryptData(token);
+
+      ctx.body = await UserService.find(id, username);
     } catch (error) {
       ctx.status = 500;
       ctx.body = error;

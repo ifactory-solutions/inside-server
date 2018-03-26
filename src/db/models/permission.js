@@ -23,6 +23,8 @@ module.exports = (sequelize, DataTypes) => {
       as: 'roles',
       through: models.RolePermission,
     });
+
+    Permission.Company = Permission.belongsTo(models.Company);
   };
 
   return Permission;
