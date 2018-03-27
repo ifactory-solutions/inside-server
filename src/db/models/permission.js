@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       context: { allowNull: false, type: DataTypes.STRING },
       action: { allowNull: false, type: DataTypes.STRING },
       resource: { allowNull: false, type: DataTypes.STRING },
+      description: { allowNull: false, type: DataTypes.STRING },
       createdAt: {
         allowNull: false,
         defaultValue: new Date(),
