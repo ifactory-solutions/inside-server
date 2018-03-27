@@ -21,10 +21,11 @@ module.exports = (sequelize, DataTypes) => {
       as: 'roles',
       through: models.UserRole,
     });
+    User.CompanyUser = User.hasMany(models.CompanyUser);
   };
 
   // Instance Method
-  User.prototype.toJSON = () => {
+  User.prototype.toJSON = function toJSON() {
     const privateAttributes = ['password'];
     return _.omit(this.dataValues, privateAttributes);
   };

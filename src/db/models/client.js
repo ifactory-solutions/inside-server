@@ -1,19 +1,19 @@
 module.exports = (sequelize, DataTypes) => {
-  const Company = sequelize.define(
-    'Company',
+  const Client = sequelize.define(
+    'Client',
     {
       name: { allowNull: false, type: DataTypes.STRING },
       createdAt: { allowNull: false, defaultValue: new Date(), type: DataTypes.DATE },
       updatedAt: { allowNull: false, defaultValue: new Date(), type: DataTypes.DATE },
     },
     {
-      tableName: 'Companies',
+      tableName: 'Clients',
     },
   );
 
-  Company.associate = (models) => {
-    Company.Client = Company.hasMany(models.Client);
+  Client.associate = (models) => {
+    Client.Company = Client.belongsTo(models.Company);
   };
 
-  return Company;
+  return Client;
 };

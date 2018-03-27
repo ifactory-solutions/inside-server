@@ -1,8 +1,8 @@
 import 'babel-polyfill';
-import koa from 'koa';
+import Koa from 'koa';
 import cors from 'kcors';
 import logger from 'koa-logger';
-import koaRouter from 'koa-router';
+import KoaRouter from 'koa-router';
 import bodyParser from 'koa-bodyparser';
 import Boom from 'boom';
 import jwt from 'koa-jwt';
@@ -10,12 +10,15 @@ import jwt from 'koa-jwt';
 import { serverPort } from './config';
 import loadRoutes from './routes';
 import db from './db/models';
-
+import getCurrentUser from './middlewares/getCurrentUser';
 // app
-const app = new koa();
+const app = new Koa();
+
+const NotImplemented = Boom.notImplemented;
+const MethodNotAllowed = Boom.methodNotAllowed;
 
 // routes
-const router = new koaRouter();
+const router = new KoaRouter();
 loadRoutes(router);
 
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'development_docker') {
@@ -36,15 +39,16 @@ app
     }),
   )
   .use(logger())
+  .use(getCurrentUser)
   .use(router.routes())
   .use(
     router.allowedMethods({
       throw: true,
-      notImplemented: () => new Boom.notImplemented(),
-      methodNotAllowed: () => new Boom.methodNotAllowed(),
+      notImplemented: () => new NotImplemented(),
+      methodNotAllowed: () => new MethodNotAllowed(),
     }),
   )
-  .use(async context => {
+  .use(async (context) => {
     context.body = 'INSIDE API';
   });
 
