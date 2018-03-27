@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
 import _ from 'lodash';
 
+import { encrypt } from '../../utils';
 import { decryptData, encryptData } from '../../utils/token';
 import { User, Role, Permission, Company } from '../../db/models';
 
@@ -21,6 +22,7 @@ const associations = [
   {
     model: Company,
     as: 'companies',
+    attributes: ['id', 'name'],
     through: { attributes: [] },
   },
 ];
@@ -56,4 +58,20 @@ export const findFromToken = async (token) => {
   };
 
   return encryptData(tokenUser);
+};
+
+export const findWithCredentials = (email, password) => {
+  const hash = encrypt(password);
+
+  return User.findOne({
+    where: {
+      email: {
+        [Op.eq]: email,
+      },
+      password: {
+        [Op.eq]: hash,
+      },
+    },
+    include: associations,
+  });
 };

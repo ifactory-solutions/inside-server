@@ -11,6 +11,7 @@ const createJwtToken = user =>
       {
         username: user.email,
         id: user.id,
+        companies: user.companies,
       },
       process.env.JWT_KEY,
     );
