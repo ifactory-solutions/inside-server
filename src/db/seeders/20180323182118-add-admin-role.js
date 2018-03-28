@@ -76,5 +76,5 @@ module.exports = {
   down: queryInterface =>
     queryInterface
       .bulkDelete('RolePermissions', null, {})
-      .then(() => queryInterface.bulkDelete('RolePermissions', null, {})),
+      .then(() => queryInterface.bulkDelete('Roles', null, {})),
 };

@@ -4,8 +4,10 @@ module.exports = {
   up: queryInterface =>
     queryInterface
       .createTable(models.User.tableName, models.User.attributes)
+      .then(() => queryInterface.createTable(models.Module.tableName, models.Module.attributes))
       .then(() => queryInterface.createTable(models.Company.tableName, models.Company.attributes))
       .then(() => queryInterface.createTable(models.CompanyUser.tableName, models.CompanyUser.attributes))
+      .then(() => queryInterface.createTable(models.CompanyModule.tableName, models.CompanyModule.attributes))
       .then(() => queryInterface.createTable(models.Client.tableName, models.Client.attributes))
       .then(() => queryInterface.createTable(models.Email.tableName, models.Email.attributes))
       .then(() => queryInterface.createTable(models.Telephone.tableName, models.Telephone.attributes))
@@ -41,7 +43,10 @@ module.exports = {
       .then(() => queryInterface.dropTable(models.UserHomeAddress.tableName))
       .then(() => queryInterface.dropTable(models.UserDocuments.tableName))
       .then(() => queryInterface.dropTable(models.UserBankAccount.tableName))
+      .then(() => queryInterface.dropTable(models.Client.tableName))
       .then(() => queryInterface.dropTable(models.CompanyUser.tableName))
+      .then(() => queryInterface.dropTable(models.CompanyModule.tableName))
+      .then(() => queryInterface.dropTable(models.Module.tableName))
       .then(() => queryInterface.dropTable(models.Company.tableName))
       .then(() => queryInterface.dropTable(models.User.tableName)),
 };
