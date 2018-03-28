@@ -11,5 +11,5 @@ module.exports = {
       {},
     ),
 
-  down: queryInterface => queryInterface.bulkDelete('UserRole', null, {}),
+  down: queryInterface => queryInterface.bulkDelete('UserRoles', null, {}),
 };

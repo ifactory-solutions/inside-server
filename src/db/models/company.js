@@ -10,10 +10,16 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'Companies',
     },
   );
+
   Company.associate = (models) => {
     Company.User = Company.belongsToMany(models.User, {
       as: 'users',
       through: models.CompanyUser,
+    });
+
+    Company.Module = Company.belongsToMany(models.Module, {
+      as: 'modules',
+      through: models.CompanyModule,
     });
   };
   return Company;

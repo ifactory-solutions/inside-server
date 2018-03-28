@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       through: models.RolePermission,
     });
 
-    Permission.Company = Permission.belongsTo(models.Company);
+    Permission.Module = Permission.belongsTo(models.Module);
   };
 
   return Permission;
