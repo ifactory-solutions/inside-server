@@ -6,6 +6,7 @@ import projectRoute from './project';
 import locationRouter from './locations';
 import companyUserRouter from './companyUser';
 import { permissionRouter } from './permissions';
+import companyRoute from './companies';
 
 const routesManagers = [
   loginRoute,
@@ -16,6 +17,7 @@ const routesManagers = [
   roleRouter,
   userRouter,
   permissionRouter,
+  companyRoute,
 ];
 
 const loadRoutes = (router) => {
