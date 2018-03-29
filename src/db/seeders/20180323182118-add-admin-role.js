@@ -282,6 +282,10 @@ module.exports = {
             RoleId: 1,
             PermissionId: 67,
           },
+          {
+            RoleId: 1,
+            PermissionId: 68,
+          },
         ]),
       ),
 

@@ -25,8 +25,8 @@ module.exports = {
         },
         {
           id: 5,
-          name: 'Projetos',
-          description: 'Módulo de Projetos',
+          name: 'Gestão de Projetos',
+          description: 'Módulo de Gestão de Projetos',
         },
         {
           id: 6,
@@ -35,13 +35,18 @@ module.exports = {
         },
         {
           id: 7,
-          name: 'Ponto',
+          name: 'Gestão de Ponto',
           description: 'Módulo de Gestão de Ponto',
         },
         {
           id: 8,
           name: 'Clientes',
           description: 'Módulo de Clientes',
+        },
+        {
+          id: 9,
+          name: 'Administrador Inside',
+          description: 'Módulo dos Administradores do Inside',
         },
       ],
       {},
