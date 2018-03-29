@@ -9,6 +9,17 @@ const projectRoute = (router) => {
       ctx.body = error;
     }
   });
+
+  router.post('/clients/:id/project', async (ctx) => {
+    try {
+      const { clientId } = ctx.params;
+      const project = ctx.request.body;
+      ctx.body = await Project.insertProjectToClient(clientId, project);
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = error;
+    }
+  });
 };
 
 export default projectRoute;

@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       as: 'technologies',
       through: 'ProjectTechnology',
     });
+    Project.Client = Project.belongsTo(models.Client);
   };
 
   return Project;

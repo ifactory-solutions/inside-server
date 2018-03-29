@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Client.associate = (models) => {
     Client.Company = Client.belongsTo(models.Company);
+    Client.Project = Client.hasMany(models.Project);
   };
 
   return Client;
