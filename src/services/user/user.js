@@ -75,3 +75,35 @@ export const findWithCredentials = (email, password) => {
     include: associations,
   });
 };
+
+export const findFromCompany = async (companyId) => {
+  const company = await Company.findOne({
+    where: {
+      id: { [Op.eq]: companyId },
+    },
+  });
+
+  return company.getUsers({
+    include: associations,
+  });
+};
+
+export const updateUserRoles = async (userId, roles) => {
+  const userQueryIds = _.map(roles, roleId => ({ id: { [Op.eq]: roleId } }));
+
+  const user = User.findOne({
+    where: {
+      id: { [Op.eq]: userId },
+    },
+    include: associations,
+  });
+
+  const userRoles = await User.findAll({
+    where: {
+      [Op.or]: userQueryIds,
+    },
+  });
+
+  await user.setRoles(userRoles);
+  return user.reload({ include: associations });
+};

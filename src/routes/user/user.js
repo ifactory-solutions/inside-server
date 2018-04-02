@@ -13,4 +13,26 @@ export const userRouter = (router) => {
       ctx.body = error;
     }
   });
+
+  router.get('/users', async (ctx) => {
+    try {
+      const { extras } = ctx.request;
+      ctx.body = await UserService.findFromCompany(extras.companyId);
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = error;
+    }
+  });
+
+  router.put('/users/roles', async (ctx) => {
+    try {
+      const token = ctx.headers.authorization;
+      const { id: userId } = decryptData(token);
+      const { body: roles } = ctx.request;
+      ctx.body = await UserService.updateUserRoles(userId, roles);
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = error;
+    }
+  });
 };
