@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
-import { CompanyUser, Telephone, Email } from '../../db/models';
+import { CompanyUser, Telephone, Email, Company } from '../../db/models';
+import { UserService } from '../../services/user';
 
 const { Op } = Sequelize;
 
@@ -19,8 +20,23 @@ const attrSettings = {
 };
 
 export const createCompanyUser = async (companyId, user) => {
+  const systemUser = {
+    name: user.personalInfo.fullName,
+    cpf: user.documentation.cpf,
+    email: user.emails[0].email,
+    password: '123456',
+  };
+
+  const userDB = await UserService.createUser(systemUser);
+  const companyDB = await Company.findOne({
+    where: {
+      id: { [Op.eq]: companyId },
+    },
+  });
+
   const companyUser = {
-    CompanyId: companyId,
+    User: userDB,
+    Company: companyDB,
     ...user,
   };
 

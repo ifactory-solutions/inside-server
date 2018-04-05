@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import _ from 'lodash';
+import crypto from 'crypto';
 
 import { encrypt } from '../../utils';
 import { decryptData, encryptData } from '../../utils/token';
@@ -26,6 +27,15 @@ const associations = [
     through: { attributes: [] },
   },
 ];
+
+export const createUser = async (user) => {
+  const password = crypto.createHmac('sha256', user.password).digest('hex');
+  const newUser = {
+    ...user,
+    password,
+  };
+  return User.create(newUser);
+};
 
 export const listUsersWithList = (users) => {
   const idsMap = _.map(users, id => ({
