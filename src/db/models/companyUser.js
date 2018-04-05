@@ -41,6 +41,8 @@ module.exports = (sequelize, DataTypes) => {
       as: 'emails',
       onDelete: 'CASCADE',
     });
+    CompanyUser.Company = CompanyUser.hasOne(models.Company);
+    CompanyUser.User = CompanyUser.hasOne(models.User);
   };
 
   return CompanyUser;

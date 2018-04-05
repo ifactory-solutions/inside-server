@@ -35,8 +35,6 @@ module.exports = {
       .then(() => queryInterface.dropTable(models.City.tableName))
       .then(() => queryInterface.dropTable(models.State.tableName))
       .then(() => queryInterface.dropTable(models.Country.tableName))
-      .then(() => queryInterface.dropTable(models.Technology.tableName))
-      .then(() => queryInterface.dropTable(models.Project.tableName))
       .then(() => queryInterface.dropTable(models.Email.tableName))
       .then(() => queryInterface.dropTable(models.Telephone.tableName))
       .then(() => queryInterface.dropTable(models.UserPersonalInfo.tableName))
@@ -48,5 +46,7 @@ module.exports = {
       .then(() => queryInterface.dropTable(models.CompanyModule.tableName))
       .then(() => queryInterface.dropTable(models.Module.tableName))
       .then(() => queryInterface.dropTable(models.Company.tableName))
+      .then(() => queryInterface.dropTable(models.Technology.tableName))
+      .then(() => queryInterface.dropTable(models.Project.tableName))
       .then(() => queryInterface.dropTable(models.User.tableName)),
 };
