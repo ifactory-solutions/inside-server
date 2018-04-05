@@ -1,12 +1,9 @@
 import Sequelize from 'sequelize';
-import { CompanyUser, Telephone, Email, Company } from '../../db/models';
+import { CompanyUser, Telephone, Email } from '../../db/models';
 import { UserService } from '../../services/user';
 
 const { Op } = Sequelize;
-
 const associations = [
-  CompanyUser.Company,
-  CompanyUser.User,
   { model: Telephone, as: 'telephones' },
   { model: Email, as: 'emails' },
   { association: CompanyUser.UserPersonalInfo },
@@ -27,16 +24,11 @@ export const createCompanyUser = async (companyId, user) => {
     password: '123456',
   };
 
-  const userDB = await UserService.createUser(systemUser);
-  const companyDB = await Company.findOne({
-    where: {
-      id: { [Op.eq]: companyId },
-    },
-  });
+  const { id: userId } = await UserService.createUser(systemUser);
 
   const companyUser = {
-    User: userDB,
-    Company: companyDB,
+    CompanyId: companyId,
+    UserId: userId,
     ...user,
   };
 

@@ -20,6 +20,7 @@ const companyUserRoute = (router) => {
       const { companyId, userId } = ctx.params;
       ctx.body = await findCompanyUser(companyId, userId);
     } catch (error) {
+      console.log(error);
       ctx.status = 500;
       ctx.body = error;
     }

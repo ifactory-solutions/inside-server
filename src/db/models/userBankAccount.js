@@ -2,10 +2,10 @@ module.exports = (sequelize, DataTypes) => {
   const UserBankAccount = sequelize.define(
     'UserBankAccount',
     {
-      nomeBanco: { allowNull: false, type: DataTypes.STRING },
-      tipoContaBancaria: { allowNull: false, type: DataTypes.STRING },
-      numeroAgenciaBancaria: { allowNull: false, type: DataTypes.STRING },
-      numeroContaBancaria: { allowNull: false, type: DataTypes.STRING },
+      nomeBanco: { allowNull: true, type: DataTypes.STRING },
+      tipoContaBancaria: { allowNull: true, type: DataTypes.STRING },
+      numeroAgenciaBancaria: { allowNull: true, type: DataTypes.STRING },
+      numeroContaBancaria: { allowNull: true, type: DataTypes.STRING },
     },
     {
       tableName: 'UserBankAccounts',
