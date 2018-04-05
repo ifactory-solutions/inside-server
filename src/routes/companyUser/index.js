@@ -1,8 +1,6 @@
 import { CompanyUser } from '../../services/companyUser';
 
-const {
-  listCompanyUser, findCompanyUser, updateCompanyUser, createCompanyUser, removeCompanyUser,
-} = CompanyUser;
+const { listCompanyUser, findCompanyUser, updateCompanyUser, createCompanyUser, removeCompanyUser } = CompanyUser;
 
 const COMPANY_USERS_URL = '/company/:companyId/users';
 
@@ -43,6 +41,8 @@ const companyUserRoute = (router) => {
       const companyUser = ctx.request.body;
       ctx.body = await createCompanyUser(companyId, companyUser);
     } catch (error) {
+      console.error(error);
+
       ctx.status = 500;
       ctx.body = error;
     }
