@@ -217,7 +217,7 @@ module.exports = {
           name: 'Criar Colaborador',
           context: 'Page',
           action: 'create',
-          resource: 'employee',
+          resource: 'employees',
           description: 'Permite criar um novo colaborador',
           ModuleId: 4,
         },

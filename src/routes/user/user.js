@@ -26,9 +26,7 @@ export const userRouter = (router) => {
 
   router.put('/users/roles', async (ctx) => {
     try {
-      const token = ctx.headers.authorization;
-      const { id: userId } = decryptData(token);
-      const { body: roles } = ctx.request;
+      const { userId, roles } = ctx.request.body;
       ctx.body = await UserService.updateUserRoles(userId, roles);
     } catch (error) {
       ctx.status = 500;
